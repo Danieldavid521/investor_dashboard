@@ -1,0 +1,77 @@
+---
+title: "Data wrangling for Oil Shiny Dashboard"
+author: "Daniel Jachetta"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    css: style.css
+---
+
+## initial info
+
+Initially I have 3 files that I want to analyze. I found the files [here](https://datahub.io/robgrootjen1/oil-data#data). I found the background image for this report [here](https://unsplash.com/photos/xTaOPMa6wAE)
+
+## previewing the file before wrangling
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+countries<- read.csv("countries.csv")
+oilcomp <- read.csv("data/oilconsumption_csv.csv")
+oilprod <- read_csv("data/oilproduction_csv.csv")
+oilworld <- read_csv("data/worldwide_csv.csv")
+```
+ 
+```{r}
+head(oilcomp, 10)
+head(oilprod, 10)
+head(oilworld, 10)
+```
+
+
+## Step 1: rename columns
+
+```{r}
+colnames(oilcomp) <- c("Country", "Oil_Consumption")
+colnames(oilprod) <- c("Country", "Oil_Production")
+colnames(oilworld) <- c("Year", "Total_Oil_Consumption")
+colnames(countries) <- c("name", "Latitude", "Longitude", "Country")
+
+```
+
+
+```{r}
+#taking top 10
+oilprod$Country[[2]] <- "United States"
+oilcomp10 <- oilcomp[2:11,]
+row.names(oilcomp5) <- 1:nrow(oilcomp5)
+oilprod10 <- oilprod[1:10,]
+
+top10comp <- right_join(countries,oilcomp5, by="Country")
+top10prod <- right_join(countries,oilprod10, by="Country")
+top10comp$name <- as.character(top10$name)
+top10comp[2,][1] <- "EU"
+top10comp[2,][2]<- 42.678693
+top10comp[2,][3] <- 23.321737
+
+
+
+  #42.678693, 23.321737,"European Union",15000000)
+```
+
+
+
+```{r}
+
+pal <- colorNumeric(
+  palette = "Blues",
+  domain = top10prod$Oil_Production)
+
+leaflet() %>%
+  addTiles() %>%  # use the default base map which is OpenStreetMap tiles
+  addMarkers(lng=top10prodLongitude, lat=Latitude) %>% 
+  addPolygons(stroke = FALSE, smoothFactor = 0.2, fillOpacity = 1,
+    color = ~pal(top10prod$Oil_Production))
+
+```
+
+
+

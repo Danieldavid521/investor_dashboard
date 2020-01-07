@@ -1,0 +1,471 @@
+{
+  "bytes": 36938,
+  "datahub": {
+    "created": "2019-11-19T18:21:55.191959",
+    "findability": "published",
+    "flowid": "f181b86acb8aa6707b07413c646cc9f2/oil-data/4",
+    "modified": "2019-11-19T18:50:29.661891",
+    "owner": "robgrootjen1",
+    "ownerid": "f181b86acb8aa6707b07413c646cc9f2"
+  },
+  "hash": "870b4c6cd5b75dd08edcd4565076b861",
+  "id": "f181b86acb8aa6707b07413c646cc9f2/oil-data",
+  "licenses": [
+    {
+      "name": "ODC-PDDL",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License"
+    }
+  ],
+  "name": "oil-data",
+  "resources": [
+    {
+      "bytes": 2749,
+      "datahub": {
+        "type": "original"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/7ea77434db166e96b16bfa2cd01719fc.py",
+      "encoding": "ISO-8859-1",
+      "format": "py",
+      "name": "process",
+      "path": "archive/process.py",
+      "pathType": "local",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 3677,
+      "datahub": {
+        "type": "original"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/35ef465c08dfe51a739da921fe718587.csv",
+      "encoding": "ISO-8859-1",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "oilconsumption_original",
+      "path": "archive/oilconsumption.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country/Region",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Oil consumption(bbl/day)",
+            "type": "integer"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "bytes": 1629,
+      "datahub": {
+        "type": "original"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/039f9c69b269ee533756c8b88bafb273.csv",
+      "encoding": "ISO-8859-1",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "oilproduction_original",
+      "path": "archive/oilproduction.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Oil Production(bbl/day)",
+            "type": "integer"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "bytes": 528,
+      "datahub": {
+        "type": "original"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/c74f49cc4e05f4c838ebb8db5d770312.csv",
+      "encoding": "ISO-8859-1",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "worldwide_original",
+      "path": "archive/worldwide.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "year",
+            "type": "year"
+          },
+          {
+            "format": "default",
+            "name": "consumption",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "bytes": 1363,
+      "datahub": {
+        "type": "derived/report"
+      },
+      "description": "Validation report for tabular data",
+      "dpp:streamedFrom": "/tmp/tmpkscx3hr1/f181b86acb8aa6707b07413c646cc9f2/oil-data/validation_report/data/7d975551d4f389accf63294bc0896410/validation_report.json",
+      "format": "json",
+      "hash": "7d975551d4f389accf63294bc0896410",
+      "name": "validation_report",
+      "path": "data/validation_report.json",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 3678,
+      "datahub": {
+        "derivedFrom": [
+          "oilconsumption"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmpkscx3hr1/f181b86acb8aa6707b07413c646cc9f2/oil-data/oilconsumption_csv/data/69db35dba356810f5c44a77fa2ba7a66/oilconsumption_csv.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "69db35dba356810f5c44a77fa2ba7a66",
+      "mediatype": "text/csv",
+      "name": "oilconsumption_csv",
+      "path": "data/oilconsumption_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 211,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country/Region",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Oil consumption(bbl/day)",
+            "type": "integer"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 1629,
+      "datahub": {
+        "derivedFrom": [
+          "oilproduction"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmpkscx3hr1/f181b86acb8aa6707b07413c646cc9f2/oil-data/oilproduction_csv/data/005ecf851b8b80e629ddff4efce9ba09/oilproduction_csv.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "005ecf851b8b80e629ddff4efce9ba09",
+      "mediatype": "text/csv",
+      "name": "oilproduction_csv",
+      "path": "data/oilproduction_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 96,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Oil Production(bbl/day)",
+            "type": "integer"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 528,
+      "datahub": {
+        "derivedFrom": [
+          "worldwide"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmpkscx3hr1/f181b86acb8aa6707b07413c646cc9f2/oil-data/worldwide_csv/data/fe054d52c6dcad1a2803aa79a61d0301/worldwide_csv.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "fe054d52c6dcad1a2803aa79a61d0301",
+      "mediatype": "text/csv",
+      "name": "worldwide_csv",
+      "path": "data/worldwide_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 34,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "year",
+            "type": "year"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "consumption",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 14192,
+      "datahub": {
+        "derivedFrom": [
+          "oilconsumption"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "/tmp/tmpkscx3hr1/f181b86acb8aa6707b07413c646cc9f2/oil-data/oilconsumption_json/data/15031e615eac55b3fcb6a0806d5bcb4d/oilconsumption_json.json",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "15031e615eac55b3fcb6a0806d5bcb4d",
+      "mediatype": "text/csv",
+      "name": "oilconsumption_json",
+      "path": "data/oilconsumption_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 211,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country/Region",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Oil consumption(bbl/day)",
+            "type": "integer"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 5629,
+      "datahub": {
+        "derivedFrom": [
+          "oilproduction"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "/tmp/tmpkscx3hr1/f181b86acb8aa6707b07413c646cc9f2/oil-data/oilproduction_json/data/4f84a7e578fb5323861995184bcfd568/oilproduction_json.json",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "4f84a7e578fb5323861995184bcfd568",
+      "mediatype": "text/csv",
+      "name": "oilproduction_json",
+      "path": "data/oilproduction_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 96,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Oil Production(bbl/day)",
+            "type": "integer"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 1336,
+      "datahub": {
+        "derivedFrom": [
+          "worldwide"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "/tmp/tmpkscx3hr1/f181b86acb8aa6707b07413c646cc9f2/oil-data/worldwide_json/data/94d5a2c99e46a7019ddac19689880239/worldwide_json.json",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "94d5a2c99e46a7019ddac19689880239",
+      "mediatype": "text/csv",
+      "name": "worldwide_json",
+      "path": "data/worldwide_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 34,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "year",
+            "type": "year"
+          },
+          {
+            "format": "default",
+            "name": "consumption",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    }
+  ],
+  "title": "Oil data",
+  "views": [
+    {
+      "name": "Oil Consumption Per Country Per Day",
+      "resources": [
+        "oilconsumption"
+      ],
+      "spec": {
+        "group": "Country/Region",
+        "series": [
+          "Oil consumption(bbl/day)"
+        ],
+        "type": "line"
+      },
+      "specType": "simple",
+      "title": "Oil Consumption Per Country Per Day"
+    },
+    {
+      "name": "Oil Production Per Country Per Day 2019",
+      "resources": [
+        "oilproduction"
+      ],
+      "spec": {
+        "group": "Country",
+        "series": [
+          "Oil Production(bbl/day)"
+        ],
+        "type": "line"
+      },
+      "specType": "simple",
+      "title": "Oil Production Per Country Per Day 2019"
+    },
+    {
+      "name": "Historical Worldwide Consumption",
+      "resources": [
+        "worldwide"
+      ],
+      "spec": {
+        "group": "year",
+        "series": [
+          "consumption"
+        ],
+        "type": "line"
+      },
+      "specType": "simple",
+      "title": "Historical Worldwide Consumption"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+
+html,body{
+  height:100%
+}
+body {
+  background: #112 url(oil.jpg)  center repeat;
+  background-size:cover;
+  margin:0
+}
+
