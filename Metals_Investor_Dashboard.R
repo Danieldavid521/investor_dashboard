@@ -6,13 +6,15 @@ ui <- dashboardPage(skin = "yellow",
   dashboardSidebar(
     sidebarMenu(
       menuItem("Metals", tabName = "Silver", icon = icon("coins"), menuSubItem("silver"),menuSubItem("gold")),
-      menuItem("oil", tabName = "Gold", icon = icon("th"))
+      menuItem("oil", tabName = "Gold", icon = icon("oil-can")),
+      menuItem("Energy", tabName = "", icon = icon("bolt")),
+      menuItem("Agricultural", tabName = "Gold", icon = icon("fa-tractor"))
     )
   ),
   dashboardBody(
     tabItems(
       # First tab content
-      tabItem(tabName = "Silver",
+      tabItem(tabName = "Metals",
               fluidRow(
                 box(plotOutput("plot1", height = 250)),
                 
