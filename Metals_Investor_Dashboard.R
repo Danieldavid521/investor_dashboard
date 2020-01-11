@@ -8,7 +8,7 @@ ui <- dashboardPage(skin = "yellow",
       menuItem("Metals", tabName = "Silver", icon = icon("coins"), menuSubItem("silver"),menuSubItem("gold")),
       menuItem("oil", tabName = "Gold", icon = icon("oil-can")),
       menuItem("Energy", tabName = "", icon = icon("bolt")),
-      menuItem("Agricultural", tabName = "Gold", icon = icon("fa-tractor"))
+      menuItem("Agricultural", tabName = "ag", icon = icon("pastafarianism"))
     )
   ),
   dashboardBody(
