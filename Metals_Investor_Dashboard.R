@@ -5,15 +5,25 @@ ui <- dashboardPage(skin = "yellow",
   dashboardHeader(title = "Metal Prices & charts"),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Metals", tabName = "Silver", icon = icon("coins"), menuSubItem("silver"),menuSubItem("gold")),
+      menuItem("Metals", tabName = "Silver", icon = icon("coins"), menuSubItem("silver", tabName = "Silver"),menuSubItem("gold", tabName = "Gold")),
       menuItem("oil", tabName = "Gold", icon = icon("oil-can")),
-      menuItem("Energy", tabName = "", icon = icon("bolt")),
+      menuItem("Energy", tabName = "Energy", icon = icon("bolt")),
       menuItem("Agricultural", tabName = "ag", icon = icon("pastafarianism"))
     )
   ),
   dashboardBody(
     tabItems(
       # First tab content
+      tabItem(tabName = "Silver", 
+              fluidRow(
+                tableOutput("Silver_table")
+              )
+      ),
+      tabItem(tabName = "Gold", 
+              fluidRow(
+                h1("Homepage 2")
+              )
+      ),
       tabItem(tabName = "Metals",
               fluidRow(
                 box(plotOutput("plot1", height = 250)),
@@ -34,6 +44,8 @@ ui <- dashboardPage(skin = "yellow",
 )
 
 
-server <- function(input, output) { }
+server <- function(input, output) { 
+  output$Silver_table <- renderTable(head(mtcars))
+  }
 
 shinyApp(ui, server)
