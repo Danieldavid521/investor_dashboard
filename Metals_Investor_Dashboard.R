@@ -1,6 +1,10 @@
 library(shinydashboard)
 library(shinythemes)
+library(tidyverse)
 
+silver_data <- read.csv("data/silverprices.csv")
+gold_data <-  read.csv("data/gold_prices.csv")
+  
 ui <- dashboardPage(skin = "yellow",
   dashboardHeader(title = "Metal Prices & charts"),
   dashboardSidebar(
@@ -21,7 +25,7 @@ ui <- dashboardPage(skin = "yellow",
       ),
       tabItem(tabName = "Gold", 
               fluidRow(
-                h1("Homepage 2")
+                tableOutput("Gold_table")
               )
       ),
       tabItem(tabName = "Metals",
@@ -45,7 +49,9 @@ ui <- dashboardPage(skin = "yellow",
 
 
 server <- function(input, output) { 
-  output$Silver_table <- renderTable(head(mtcars))
+  output$Silver_table <- renderTable(silver_data)
+  output$Gold_table <- renderTable(gold_data)
   }
 
 shinyApp(ui, server)
+
