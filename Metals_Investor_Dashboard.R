@@ -19,25 +19,20 @@ ui <- dashboardPage(skin = "yellow",
     tabItems(
       # First tab content
       tabItem(tabName = "Silver", 
-              fluidRow(
-                tableOutput("Silver_table")
+              fluidRow(column(1,
+                
+                infoBox("Current Price", "$18.00", icon = icon("chart-bar"), color = "green",
+                  tableOutput("Silver_table")),)
+               
               )
       ),
       tabItem(tabName = "Gold", 
-              fluidRow(
-                tableOutput("Gold_table")
+              fluidRow(column(1,
+                infoBox("Current Price", "$1550.00", icon = icon("chart-bar"), color = "green",
+                tableOutput("Gold_table")),)
               )
       ),
-      tabItem(tabName = "Metals",
-              fluidRow(
-                box(plotOutput("plot1", height = 250)),
-                
-                box(
-                  title = "Controls",
-                  sliderInput("slider", "Number of observations:", 1, 100, 50)
-                )
-              )
-      ),
+      tabItem(tabName = "Metals"),
       
       # Second tab content
       tabItem(tabName = "Gold",
@@ -49,8 +44,9 @@ ui <- dashboardPage(skin = "yellow",
 
 
 server <- function(input, output) { 
-  output$Silver_table <- renderTable(silver_data)
+  output$Silver_table <- renderTable(silver_data, width = "auto")
   output$Gold_table <- renderTable(gold_data)
+  
   }
 
 shinyApp(ui, server)
