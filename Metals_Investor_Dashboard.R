@@ -21,11 +21,15 @@ ui <- dashboardPage(skin = "yellow",
       tabItem(tabName = "Silver", 
               fluidRow(column(1,
                 
-                infoBox("Current Price", "$18.00", icon = icon("chart-bar"), color = "green",
-                  tableOutput("Silver_table")),)
+                infoBox("Current Price", "$18.00", icon = icon("chart-bar"), color = "green",)
+                ,)
                
-              )
-      ),
+              ),
+              fluidRow(column(1,
+              tableOutput("Silver_table")))
+              
+              
+              ),
       tabItem(tabName = "Gold", 
               fluidRow(column(1,
                 infoBox("Current Price", "$1550.00", icon = icon("chart-bar"), color = "green",
@@ -50,4 +54,5 @@ server <- function(input, output) {
   }
 
 shinyApp(ui, server)
+
 
